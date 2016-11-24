@@ -1,4 +1,4 @@
-package cn.bluemobi.dylan.commonadapter;
+package cn.bluemobi.dylan.adaptertest;
 
 import android.content.Context;
 import android.view.LayoutInflater;

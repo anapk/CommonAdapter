@@ -1,8 +1,9 @@
-package cn.bluemobi.dylan.commonadapter.adapter;
+package cn.bluemobi.dylan.commonadapter.ablistview;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 
@@ -10,14 +11,30 @@ import java.util.List;
 
 /**
  * Created by yuandl on 2016-10-13.
- * 万能适配器
+ * ListView和GridView的万能适配器
  */
 
 public abstract class CommonAdapter<T> extends BaseAdapter {
+    /**
+     * 上下文
+     */
     private Context context;
+    /**
+     * 要显示的数据集合
+     */
     private List<T> datas;
+    /**
+     * 布局id
+     */
     private int layoutId;
 
+    /**
+     * 构造函数
+     *
+     * @param context  上下文
+     * @param datas    要显示的数据集合
+     * @param layoutId 布局id
+     */
     public CommonAdapter(Context context, List<T> datas, int layoutId) {
         this.context = context;
         this.datas = datas;
@@ -39,19 +56,6 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         return position;
     }
 
-//    @Override
-//    public View getView(int position, View convertView, ViewGroup parent) {
-//        if (convertView == null) {
-//            Log.d("listview", "---------LayoutInflater()-----------" + position);
-//            convertView = LayoutInflater.from(context).inflate(layoutId, null);
-//        }else{
-//        }
-////        Log.d("listview", "---------getView()-----------" + position);
-//        T t = getItem(position);
-//        convertView(convertView, t);
-//        return convertView;
-//    }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         CommonViewHolder commonViewHolder;
@@ -60,7 +64,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
         } else {
             commonViewHolder = CommonViewHolder.getViewHolder(convertView, position);
         }
-        convertView(commonViewHolder,getItem(position));
+        convertView(commonViewHolder, getItem(position));
         return commonViewHolder.getContentView();
     }
 
@@ -70,7 +74,7 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
      * @param listView 要更新的listview
      * @param position 要更新的位置
      */
-    public void notifyDataSetChanged(ListView listView, int position) {
+    public void notifyDataSetChanged(AbsListView listView, int position) {
         /**第一个可见的位置**/
         int firstVisiblePosition = listView.getFirstVisiblePosition();
         /**最后一个可见的位置**/
@@ -88,8 +92,8 @@ public abstract class CommonAdapter<T> extends BaseAdapter {
     /**
      * 需要去实现的对item中的view的设置操作
      *
-     * @param commonViewHolder
-     * @param t
+     * @param commonViewHolder 缓存的ViewHolder
+     * @param t                数据对象
      */
     protected abstract void convertView(CommonViewHolder commonViewHolder, T t);
 

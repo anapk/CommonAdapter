@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context="cn.bluemobi.dylan.commonadapter.MainActivity">
+    tools:context="cn.bluemobi.dylan.adaptertest.MainActivity">
 
 
     <ListView

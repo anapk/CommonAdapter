@@ -1,17 +1,17 @@
-package cn.bluemobi.dylan.commonadapter;
+package cn.bluemobi.dylan.adaptertest;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import cn.bluemobi.dylan.commonadapter.adapter.CommonAdapter;
-import cn.bluemobi.dylan.commonadapter.adapter.CommonViewHolder;
+import cn.bluemobi.dylan.commonadapter.ablistview.CommonAdapter;
+import cn.bluemobi.dylan.commonadapter.ablistview.CommonViewHolder;
+
 
 public class MainActivity extends AppCompatActivity {
 

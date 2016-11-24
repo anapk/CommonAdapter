@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("cn.bluemobi.dylan.listviewupdate", appContext.getPackageName());
+        assertEquals("cn.bluemobi.dylan.commonadapter.test", appContext.getPackageName());
     }
 }

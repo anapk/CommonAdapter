@@ -1,7 +1,6 @@
-package cn.bluemobi.dylan.commonadapter.adapter;
+package cn.bluemobi.dylan.commonadapter.ablistview;
 
 
-import android.app.Dialog;
 import android.content.Context;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
@@ -12,7 +11,7 @@ import android.view.ViewGroup;
  * Created by yuandl on 2016-10-13.
  * 万能的ViewHolder
  *
- * @author
+ * @author Dylan
  */
 public class CommonViewHolder {
     /**
@@ -25,23 +24,27 @@ public class CommonViewHolder {
     private int position;
 
     /**
-     * item的contentView
+     * 获取item的contentView
      *
-     * @return
+     * @return item的contentView
      */
     public View getContentView() {
         return contentView;
     }
 
+    /**
+     * 加载的item的contentView
+     */
     private View contentView;
 
     /**
-     * @param context
-     * @param position
-     * @param layoutId
-     * @return
+     * 构造函数
+     *
+     * @param context  上下文
+     * @param position 位置
+     * @param parent   父类的ViewGroup
+     * @param layoutId 布局文件id
      */
-
     public CommonViewHolder(Context context, int position, ViewGroup parent, int layoutId) {
 
         this.position = position;
@@ -51,19 +54,34 @@ public class CommonViewHolder {
 
     }
 
+    /**
+     * 获取ViewHolder
+     *
+     * @param convertView 要创建ViewHolder的convertView
+     * @param position    位置
+     * @return ViewHolder对象
+     */
     public static CommonViewHolder getViewHolder(View convertView, int position) {
         CommonViewHolder commonViewHolder = (CommonViewHolder) convertView.getTag();
         commonViewHolder.position = position;
         return commonViewHolder;
     }
 
+    /**
+     * 获取当前的位置
+     *
+     * @return 当前的位置
+     */
     public int getPosition() {
         return position;
     }
 
     /**
-     * @param id 缓存View的唯一标识
-     * @return
+     * 寻找控件
+     *
+     * @param id  缓存View的唯一标识
+     * @param <T> 要寻找的View类型
+     * @return 要寻找的View
      */
     public <T extends View> T get(int id) {
 
@@ -77,9 +95,12 @@ public class CommonViewHolder {
     }
 
     /**
+     * 根据View去寻找里面的控件
+     *
      * @param view 所有缓存View的根View
      * @param id   缓存View的唯一标识
-     * @return
+     * @param <T>  要寻找的View类型
+     * @return 要寻找的View
      */
     public static <T extends View> T get(View view, int id) {
 
